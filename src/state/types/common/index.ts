@@ -1,4 +1,4 @@
-import {BooksState} from '../../types';
+import {BooksState} from '..';
 
 export type GlobalState = Readonly<{
   books: BooksState;

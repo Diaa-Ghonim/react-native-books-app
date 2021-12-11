@@ -8,9 +8,9 @@ import {
 } from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {ErrorMessage} from '../../Components';
-import {getBooks} from '../../redux/actions';
-import {selectBooksState} from '../../redux/selectors';
-import {Book} from '../../redux/types';
+import {getBooks} from '../../../state/actions';
+import {selectBooksState} from '../../../state/selectors';
+import {Book} from '../../../state/types';
 import {ListHeaderComponent, BookItem} from './Components';
 import {ScreenProps} from './types';
 

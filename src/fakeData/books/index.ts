@@ -1,10 +1,10 @@
-import {ADD_BOOK, GET_BOOKS} from '../../redux/actions/books/action.types';
+import {ADD_BOOK, GET_BOOKS} from '../../state/actions/books/action.types';
 import {
   Book,
   BookItemFromResponse,
   BooksResponse,
   BooksState,
-} from '../../redux/types';
+} from '../../state/types';
 
 export const fakeBookFromResponse: BookItemFromResponse = {
   kind: 'books#volume',

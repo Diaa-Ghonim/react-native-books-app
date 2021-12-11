@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {View, Text, Image, TouchableOpacity, StyleSheet} from 'react-native';
-import {Book} from '../../../../redux/types';
+import {Book} from '../../../../../state/types';
 
 const BookItem = ({book}: {book: Book}) => {
   const [isShowMore, setIsShowMore] = useState(false);

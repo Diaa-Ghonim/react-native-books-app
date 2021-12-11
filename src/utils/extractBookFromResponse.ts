@@ -1,4 +1,4 @@
-import {BooksResponse} from '../redux/types';
+import {BooksResponse} from '../state/types';
 
 export function extractBookFromResponse(response: BooksResponse) {
   const books = response.items.map(item => {

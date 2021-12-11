@@ -1,4 +1,4 @@
-import {BooksResponse} from './src/redux/types';
+import {BooksResponse} from './src/state/types';
 export const data: BooksResponse = {
   kind: 'books#volumes',
   totalItems: 372,

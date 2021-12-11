@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import {DatePicker, ErrorMessage, ImagePicker} from '../../Components';
 import {Asset} from 'react-native-image-picker';
-import {addBook} from '../../redux/actions';
+import {addBook} from '../../../state/actions';
 import {useDispatch} from 'react-redux';
 import {ScreenProps} from '../Home/types';
 

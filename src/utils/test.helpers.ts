@@ -1,5 +1,5 @@
 import {runSaga} from 'redux-saga';
-import {FakeGlobalState, Action} from '../redux/types';
+import {FakeGlobalState, Action} from '../state/types';
 
 export async function customRunSaga<T>(
   fakeState: FakeGlobalState,
