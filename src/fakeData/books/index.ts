@@ -130,7 +130,7 @@ export const fakeBooks: BooksResponse = {
 
 export const fakeBooksState: BooksState = {
   loading: false,
-  books: [],
+  books: [fakeBook],
   errMsg: '',
 };
 

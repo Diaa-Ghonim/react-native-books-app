@@ -1,6 +1,7 @@
 import React, {ReactElement} from 'react';
 import {Provider} from 'react-redux';
-import renderer from 'react-test-renderer';
+// import renderer from 'react-test-renderer';
+import {render} from '@testing-library/react-native';
 import {configureStore} from '../state/store';
 
 export const renderWithState = (
@@ -11,5 +12,5 @@ export const renderWithState = (
   const Wrapper = ({children}: {children: ReactElement}) => (
     <Provider store={store}>{children}</Provider>
   );
-  return renderer.create(ui, {wrapper: Wrapper, ...renderOptions});
+  return render(ui, {wrapper: Wrapper, ...renderOptions});
 };

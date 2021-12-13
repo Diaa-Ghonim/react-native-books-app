@@ -1,12 +1,14 @@
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
-import {ScreenProps} from '../../types';
+// import {ScreenProps} from '../../types';
 
-const ListHeaderComponent = ({navigation}: ScreenProps) => {
+const ListHeaderComponent = () => {
+  const navigation = useNavigation();
   return (
     <View style={style.container}>
       <Text style={style.headerText}>Books</Text>
-      <TouchableOpacity onPress={() => navigation.navigate('AddBook')}>
+      <TouchableOpacity onPress={() => navigation.navigate('AddBook' as never)}>
         <Text style={style.button}>Add Book</Text>
       </TouchableOpacity>
     </View>

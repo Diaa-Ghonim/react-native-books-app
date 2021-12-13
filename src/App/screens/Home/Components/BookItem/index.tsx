@@ -8,7 +8,7 @@ const BookItem = ({book}: {book: Book}) => {
   const slicedDesc = description?.substring(0, 100);
 
   return (
-    <View style={style.container}>
+    <View style={style.container} testID="bookItem">
       <Text style={style.title}>{title}</Text>
       <Text style={style.description}>
         {description && description.length < 100 && <Text>{description}</Text>}
@@ -22,7 +22,9 @@ const BookItem = ({book}: {book: Book}) => {
       </Text>
 
       {description && description.length > 100 && (
-        <TouchableOpacity onPress={() => setIsShowMore(!isShowMore)}>
+        <TouchableOpacity
+          onPress={() => setIsShowMore(!isShowMore)}
+          testID="moreButton">
           <Text style={style.showMoreButton}>
             {isShowMore ? 'less more' : 'show more'}
           </Text>
@@ -31,7 +33,11 @@ const BookItem = ({book}: {book: Book}) => {
       <View style={style.bookImageContainer}>
         <Text style={style.publishedDate}>Published on: {publishedDate}</Text>
 
-        <Image source={{uri: thumbnail}} style={style.thumbnail} />
+        <Image
+          testID="bookThumbnail"
+          source={{uri: thumbnail}}
+          style={style.thumbnail}
+        />
       </View>
     </View>
   );
@@ -46,12 +52,12 @@ const style = StyleSheet.create({
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 1,
+      height: 6,
     },
-    shadowOpacity: 0.2,
-    shadowRadius: 1.41,
+    shadowOpacity: 0.39,
+    shadowRadius: 8.3,
 
-    elevation: 2,
+    elevation: 13,
   },
   title: {
     fontWeight: 'bold',

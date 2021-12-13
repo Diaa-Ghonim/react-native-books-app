@@ -1,20 +1,23 @@
 import React from 'react';
 import {View, Image, Button, StyleSheet} from 'react-native';
-import {
-  launchImageLibrary,
-  // launchCamera,
-  Asset,
-} from 'react-native-image-picker';
+import * as ImagePickerOrigin from 'react-native-image-picker';
+// import { ImagePicker } from '..';
 
-type Props = {photo: Asset | null; setPhoto: (photo: Asset) => void};
+type x = ImagePickerOrigin.Asset;
+type Props = {
+  photo: ImagePickerOrigin.Asset | null;
+  setPhoto: (photo: ImagePickerOrigin.Asset) => void;
+};
 const ImagePicker = ({photo, setPhoto}: Props) => {
   const handleChoosePhoto = async () => {
     try {
-      const response = await launchImageLibrary({mediaType: 'photo'});
+      const response = await ImagePickerOrigin.launchImageLibrary({
+        mediaType: 'photo',
+      });
       // const response = await launchCamera({mediaType: 'photo'});
       if (response && response.assets) {
         const image = response.assets[0];
-        console.log(image);
+        console.log('call');
 
         setPhoto(image);
       }
@@ -27,7 +30,11 @@ const ImagePicker = ({photo, setPhoto}: Props) => {
     <View style={style.container}>
       {photo && (
         <>
-          <Image source={{uri: photo.uri}} style={style.image} />
+          <Image
+            testID="previewedImage"
+            source={{uri: photo.uri}}
+            style={style.image}
+          />
         </>
       )}
       <Button title="Upload Thumbnail" onPress={handleChoosePhoto} />

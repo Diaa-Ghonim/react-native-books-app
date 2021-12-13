@@ -10,7 +10,7 @@ type Props = {
 const DateTimePicker = ({date, setDate}: Props) => {
   const [mode, setMode] = useState<AndroidMode>('date');
   const [show, setShow] = useState(false);
-  console.log({mode, show}, 'shsow and mode');
+
   const onChange = (event: SyntheticEvent, selectedDate: any) => {
     const currentDate = selectedDate || date;
     setShow(false);

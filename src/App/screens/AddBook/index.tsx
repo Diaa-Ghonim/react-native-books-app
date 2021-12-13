@@ -11,10 +11,14 @@ import {DatePicker, ErrorMessage, ImagePicker} from '../../Components';
 import {Asset} from 'react-native-image-picker';
 import {addBook} from '../../../state/actions';
 import {useDispatch} from 'react-redux';
-import {ScreenProps} from '../Home/types';
+// import {ScreenProps} from '../Home/types';
+import {useNavigation} from '@react-navigation/native';
 
-const AddBook = ({navigation}: ScreenProps) => {
+const AddBook = () => {
+  // console.log(navigation);
   const dispatch = useDispatch();
+  const navigation = useNavigation();
+
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [date, setDate] = useState<Date | null>(null);
@@ -33,7 +37,7 @@ const AddBook = ({navigation}: ScreenProps) => {
       };
 
       dispatch(addBook(book));
-      navigation.navigate('Home');
+      navigation.navigate('Home' as never);
     } else {
       setValidationError('You should fill all Fields');
     }
@@ -75,7 +79,7 @@ const AddBook = ({navigation}: ScreenProps) => {
       <View style={style.line} />
       {validationError && <ErrorMessage message={validationError} />}
       <View style={style.buttonContainer}>
-        <Button color="#28a745" title="Add Book" onPress={onAddBook} />
+        <Button color="#28a745" title="ADD BOOK" onPress={onAddBook} />
       </View>
     </ScrollView>
   );
