@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
-import {View, Text, Image, TouchableOpacity, StyleSheet} from 'react-native';
+import {View, Text, Image, StyleSheet} from 'react-native';
 import {Book} from '../../../../../state/types';
+import {TouchableButton} from '../../../../Components';
 
 const BookItem = ({book}: {book: Book}) => {
   const [isShowMore, setIsShowMore] = useState(false);
@@ -22,13 +23,11 @@ const BookItem = ({book}: {book: Book}) => {
       </Text>
 
       {description && description.length > 100 && (
-        <TouchableOpacity
-          onPress={() => setIsShowMore(!isShowMore)}
-          testID="moreButton">
-          <Text style={style.showMoreButton}>
-            {isShowMore ? 'less more' : 'show more'}
-          </Text>
-        </TouchableOpacity>
+        <TouchableButton
+          touchableOpacityProps={{onPress: () => setIsShowMore(!isShowMore)}}
+          label={isShowMore ? 'less more' : 'show more'}
+          textProps={{style: style.showMoreButton}}
+        />
       )}
       <View style={style.bookImageContainer}>
         <Text style={style.publishedDate}>Published on: {publishedDate}</Text>
@@ -62,15 +61,15 @@ const style = StyleSheet.create({
   title: {
     fontWeight: 'bold',
     fontSize: 18,
-    fontFamily: 'sans-serif-medium',
     color: '#5e6a76',
+    fontFamily: 'sans-serif-medium',
   },
   description: {
-    fontSize: 17,
-    fontFamily: 'sans-serif-medium',
     color: '#5e6a76',
     padding: 10,
     paddingBottom: 0,
+    fontFamily: 'sans-serif-medium',
+    fontSize: 17,
   },
   noDescription: {
     color: '#721c24',
@@ -78,6 +77,8 @@ const style = StyleSheet.create({
     padding: 5,
     borderWidth: 1,
     borderColor: '#f5c6cb',
+    fontFamily: 'sans-serif-medium',
+    fontSize: 17,
   },
   showMoreButton: {
     color: '#1a73e8',

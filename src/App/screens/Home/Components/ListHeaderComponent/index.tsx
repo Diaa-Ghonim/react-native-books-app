@@ -1,25 +1,31 @@
 import {useNavigation} from '@react-navigation/native';
 import React from 'react';
-import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
+import {View, StyleSheet} from 'react-native';
+import {CustomText, TouchableButton} from '../../../../Components';
 // import {ScreenProps} from '../../types';
 
 const ListHeaderComponent = () => {
   const navigation = useNavigation();
   return (
     <View style={style.container}>
-      <Text style={style.headerText}>Books</Text>
-      <TouchableOpacity onPress={() => navigation.navigate('AddBook' as never)}>
-        <Text style={style.button}>Add Book</Text>
-      </TouchableOpacity>
+      <CustomText style={style.headerText}>Books</CustomText>
+      <TouchableButton
+        label="Add Book"
+        touchableOpacityProps={{
+          onPress: () => navigation.navigate('AddBook' as never),
+        }}
+        textProps={{style: style.button}}
+      />
     </View>
   );
 };
 
 const style = StyleSheet.create({
   container: {
-    backgroundColor: '#2f525f',
-    // backgroundColor: 'white',
+    // backgroundColor: '#2f525f',
     // backgroundColor: '#00baff',
+    backgroundColor: '#778899',
+    // backgroundColor: '#708090',
     padding: 10,
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -27,11 +33,8 @@ const style = StyleSheet.create({
     borderRadius: 5,
   },
   headerText: {
-    // color: '#5e6a76',
-    color: '#cee9f3',
+    color: '#fff',
     fontWeight: 'bold',
-    fontFamily: 'sans-serif-medium',
-    fontSize: 17,
   },
   button: {
     backgroundColor: 'white',
@@ -41,7 +44,6 @@ const style = StyleSheet.create({
     paddingLeft: 10,
     paddingRight: 10,
     borderRadius: 5,
-    fontFamily: 'sans-serif-medium',
     fontSize: 17,
   },
 });

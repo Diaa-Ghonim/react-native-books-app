@@ -1,6 +1,7 @@
 import React, {SyntheticEvent, useState} from 'react';
-import {View, StyleSheet, TouchableOpacity, Text} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import DateTimePickerOrigin from '@react-native-community/datetimepicker';
+import {TouchableButton} from '..';
 
 type AndroidMode = 'date' | 'time';
 type Props = {
@@ -30,9 +31,11 @@ const DateTimePicker = ({date, setDate}: Props) => {
   return (
     <View>
       <View>
-        <TouchableOpacity onPress={showDatepicker}>
-          <Text style={style.pickButton}>PICK PUBLISHED DATE</Text>
-        </TouchableOpacity>
+        <TouchableButton
+          touchableOpacityProps={{onPress: showDatepicker}}
+          textProps={{style: style.pickButton}}
+          label="PICK PUBLISHED DATE"
+        />
       </View>
 
       {show && (

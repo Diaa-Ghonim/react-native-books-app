@@ -11,11 +11,11 @@ import {DatePicker, ErrorMessage, ImagePicker} from '../../Components';
 import {Asset} from 'react-native-image-picker';
 import {addBook} from '../../../state/actions';
 import {useDispatch} from 'react-redux';
-// import {ScreenProps} from '../Home/types';
 import {useNavigation} from '@react-navigation/native';
 
+// import {ScreenProps} from './types';
+
 const AddBook = () => {
-  // console.log(navigation);
   const dispatch = useDispatch();
   const navigation = useNavigation();
 
@@ -25,9 +25,16 @@ const AddBook = () => {
   const [photo, setPhoto] = React.useState<Asset | null>(null);
   const [validationError, setValidationError] = useState<string | null>(null);
 
+  const resetInputs = () => {
+    setTitle('');
+    setDescription('');
+    setDate(null);
+    setPhoto(null);
+    setValidationError(null);
+  };
+
   const onAddBook = () => {
     if (title && description && date && photo?.uri) {
-      setValidationError('');
       const book = {
         title,
         description,
@@ -37,6 +44,7 @@ const AddBook = () => {
       };
 
       dispatch(addBook(book));
+      resetInputs();
       navigation.navigate('Home' as never);
     } else {
       setValidationError('You should fill all Fields');
